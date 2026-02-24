@@ -1,17 +1,17 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();   // ✅ Load environment variables
+require("dotenv").config();
 
 const app = express();
 
+// ✅ Allow frontend (port 3000)
 app.use(cors({
-  origin: "http://localhost:8081"
+  origin: "http://localhost:3000"
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Import your models (this contains mongoose)
 const db = require("./app/models");
 
 db.mongoose
